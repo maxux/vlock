@@ -10,6 +10,26 @@
 This is vlock, the Linux _V_irtual Console locking program.  It allows
 you to lock one or all of the sessions of your Linux console display.
 
+-------------------------------------------------------------------------------
+
+Framebuffer Update
+
+  A new framebuffer module is added to this project. This module takes
+~/.vlock/framebuffer.raw file and display it in raw into framebuffer device
+as soon as vlock created a new console (flags -an).
+
+  To generate a framebuffer.raw file from an existing image, you needs to use
+an image with the same size of your screen (eg: 1920x1080) and convert it
+using this command from ImageMagick (for example):
+
+    convert my-wallpaper.png bgra:~/.vlock/framebuffer.raw
+
+  If you try to load framebuffer plugin without framebuffer enabled, or
+without an existing framebuffer.raw file, nothing will fail but you'll see a
+warning message.
+
+-------------------------------------------------------------------------------
+
 Usage is very simple; by default, vlock locks the single console or
 terminal you are on.  If you want to lock the console completely so that
 no one else can log into any of the virtual consoles (perhaps because
@@ -44,3 +64,5 @@ an X11 session.  The -n flag implies -a and thus all warnings about -a
 also apply to -n.
 
 vlock is maintained by Frank Benkstein <frank-vlock@benkstein.net>.
+
+
