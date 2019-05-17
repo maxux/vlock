@@ -19,6 +19,8 @@ caca.so : override LDLIBS += -lcaca -lncurses
 
 all.o: all.c ../src/console_switch.h
 
+framebuffer.o: framebuffer.c
+
 #generic build rule
 
 %.so : override LDFLAGS += -shared
@@ -31,6 +33,8 @@ install-new.so : MODULE_GROUP=$(VLOCK_GROUP)
 install-new.so : MODULE_MODE=$(VLOCK_MODULE_MODE)
 install-nosysrq.so : MODULE_GROUP=$(VLOCK_GROUP)
 install-nosysrq.so : MODULE_MODE=$(VLOCK_MODULE_MODE)
+install-framebuffer.so : MODULE_GROUP=$(VLOCK_GROUP)
+install-framebuffer.so : MODULE_MODE=$(VLOCK_MODULE_MODE)
 
 # generic installation rule
 
